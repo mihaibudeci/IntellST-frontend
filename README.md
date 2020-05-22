@@ -1,3 +1,3 @@
 # IntellST-frontend
 
-UTM & Pentalog 
+UTM & Pentalog project
