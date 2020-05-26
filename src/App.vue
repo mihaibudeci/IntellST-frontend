@@ -4,22 +4,39 @@
       v-model="drawer"
       app
       clipped
+      width="200"
     >
       <v-list dense>
         <v-list-item link to="/">
           <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
+            <v-icon>mdi-home</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Dashboard</v-list-item-title>
+            <v-list-item-title>Home page</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link to="/cases">
+          <v-list-item-action>
+            <v-icon>mdi-folder-open</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Consult cases</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link to="/settings">
+          <v-list-item-action>
+            <v-icon>mdi-cog</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Settings</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item link  to="/about">
           <v-list-item-action>
-            <v-icon>mdi-information</v-icon>
+            <v-icon>mdi-help-circle</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>About</v-list-item-title>
+            <v-list-item-title>FAQ</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -30,8 +47,18 @@
       color="grey darken-3"
       clipped-left
     >
-          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <img :src="require('./assets/logo.svg')" class="mt-2 mr-3" height="100"/>
+      <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>mdi-bell</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon>mdi-account</v-icon>
+      </v-btn>
+      <v-btn icon to="/login">
+        <v-icon>mdi-exit-to-app</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-content>
