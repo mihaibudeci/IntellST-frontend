@@ -69,6 +69,7 @@
         fluid
       >
     <router-view></router-view>
+    
       </v-container>
     </v-content>
 
