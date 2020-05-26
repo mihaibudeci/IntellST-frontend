@@ -1,10 +1,13 @@
 <template>
   <v-app id="inspire">
     <v-navigation-drawer
-      v-model="drawer"
       app
       clipped
       width="200"
+      permanent
+      expand-on-hover
+      color="red darken-1"
+      class="transparent"
     >
       <v-list dense>
         <v-list-item link to="/">
@@ -47,8 +50,7 @@
       color="grey darken-3"
       clipped-left
     >
-    <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <img :src="require('./assets/logo.svg')" class="mt-2 mr-3" height="100"/>
+      <img :src="require('./assets/logo.svg')" class="mt-2 mr-1" height="100"/>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon>mdi-bell</v-icon>
@@ -83,11 +85,15 @@
     props: {
       source: String,
     },
-    data: () => ({
-      drawer: false,
-    }),
     created () {
       this.$vuetify.theme.dark = true
     },
   }
 </script>
+
+<style scoped>
+.transparent {
+   opacity: 0.90;
+   border-color: transparent!important;
+ }
+</style>
