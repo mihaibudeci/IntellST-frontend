@@ -1,15 +1,12 @@
 <template>
   <v-app>
-    <v-dashboard/>
+    <router-view/>
   </v-app>
 </template>
 
 <script>
-  import VDashboard from '@/views/Dashboard.vue';
-
-  export default {
-    components: {
-      VDashboard,
-    }
-  }
+export default {
+  name: "App",
+  components: {}
+};
 </script>
