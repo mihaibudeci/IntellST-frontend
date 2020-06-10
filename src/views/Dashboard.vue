@@ -12,7 +12,7 @@
       <v-list dense
         class="tile"
       >
-        <v-list-item link to="/home">
+        <v-list-item link to="/">
           <v-list-item-action>
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
