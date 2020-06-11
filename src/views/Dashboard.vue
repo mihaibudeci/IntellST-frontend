@@ -54,6 +54,9 @@
     >
       <img :src="require('@/assets/logo.svg')" class="mt-2 mr-1" height="100"/>
       <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>mdi-bell</v-icon>
+      </v-btn>
   
       <v-menu
         v-model="menu"
