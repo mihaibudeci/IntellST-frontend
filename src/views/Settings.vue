@@ -35,9 +35,7 @@
 
     <v-card-actions>
       <v-col class="text-center">
-        <div class="my-4">
           <v-btn color="red">Save</v-btn>
-        </div>
       </v-col>
     </v-card-actions>
   </v-card>
