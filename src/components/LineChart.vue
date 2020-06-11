@@ -5,11 +5,11 @@ export default {
   extends: Line,
   mounted () {
     this.renderChart({
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday ', 'Sunday'],
       datasets: [
         {
-          label: 'Data One',
-          backgroundColor: '#f87979',
+          label: 'Data',
+          backgroundColor: '#d01919',
           data: [40, 39, 10, 40, 39, 80, 40]
         }
       ]

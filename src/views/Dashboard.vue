@@ -103,6 +103,6 @@
     border-radius: 4px;
   }
   .tile:hover {
-    color: red;
+    color: #f12626;
   }
 </style>
