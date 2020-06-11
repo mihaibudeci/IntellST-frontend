@@ -139,7 +139,8 @@
     },
     created () {
       this.$vuetify.theme.dark = true
-    },methods:{
+    },
+    methods:{
     logout() {
       this.$router.push("/login");
       //TODO call mutation with empty tokens
@@ -168,5 +169,3 @@
     color: #f12626;
   }
 </style>
-
-
