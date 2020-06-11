@@ -34,7 +34,11 @@
     </v-list-item>
 
     <v-card-actions>
-      <v-btn text>Save</v-btn>
+      <v-col class="text-center">
+        <div class="my-4">
+          <v-btn color="red">Save</v-btn>
+        </div>
+      </v-col>
     </v-card-actions>
   </v-card>
 </template>
