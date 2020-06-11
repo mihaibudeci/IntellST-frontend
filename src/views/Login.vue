@@ -32,6 +32,7 @@
                     label="Login"
                     name="login"
                     prepend-icon="mdi-account"
+                    color="red"
                     type="text"
                   ></v-text-field>
 
@@ -40,6 +41,7 @@
                     label="Password"
                     name="password"
                     prepend-icon="mdi-lock"
+                    color="red"
                     type="password"
                   ></v-text-field>
                 </v-form>
