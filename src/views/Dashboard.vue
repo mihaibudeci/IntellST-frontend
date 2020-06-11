@@ -49,7 +49,7 @@
 
     <v-app-bar
       app
-      color="grey darken-3"
+      color="grey darken-4"
       clipped-left
     >
       <img :src="require('@/assets/logo.svg')" class="mt-2 mr-1" height="100"/>
