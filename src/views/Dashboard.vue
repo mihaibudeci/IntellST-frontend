@@ -54,15 +54,56 @@
     >
       <img :src="require('@/assets/logo.svg')" class="mt-2 mr-1" height="100"/>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>mdi-bell</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-account</v-icon>
-      </v-btn>
-      <v-btn icon to="/login">
-        <v-icon>mdi-exit-to-app</v-icon>
-      </v-btn>
+  
+      <v-menu
+        v-model="menu"
+        bottom
+        right
+        transition="scale-transition"
+        origin="top left"
+      >
+        <template v-slot:activator="{ on }">
+          <v-chip
+            pill
+            v-on="on"
+          >
+            <v-avatar left>
+              <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+            </v-avatar>
+            John Leider
+          </v-chip>
+        </template>
+        <v-card width="300">
+          <v-list dark>
+            <v-list-item>
+              <v-list-item-avatar>
+                <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-title>John Leider</v-list-item-title>
+                <v-list-item-subtitle>john@vuetifyjs.com</v-list-item-subtitle>
+              </v-list-item-content>
+              <v-list-item-action>
+                <v-btn
+                  icon
+                  @click="menu = false"
+                >
+                  <v-icon>mdi-close-circle</v-icon>
+                </v-btn>
+              </v-list-item-action>
+            </v-list-item>
+          </v-list>
+          <v-list>
+            <v-list-item @click="() => {}">
+              <v-list-item-action>
+                <v-icon>mdi-briefcase</v-icon>
+              </v-list-item-action>
+              <v-list-item-subtitle>john@gmail.com</v-list-item-subtitle>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </v-menu>
+        <v-btn text color="red" @click="logout"><v-icon>mdi-exit-to-app</v-icon></v-btn>
     </v-app-bar>
 
     <v-content>
@@ -79,6 +120,12 @@
         Copyright &copy; {{ new Date().getFullYear() }} <strong>IntellST.</strong> All Rights Reserved
       </v-card-text>
     </v-footer>
+    <div>
+      <UserViewProfyle
+        ref="userForm"
+        title="User info"
+      />
+    </div>
   </v-app>
 </template>
 
@@ -89,6 +136,18 @@
     },
     created () {
       this.$vuetify.theme.dark = true
+    },methods:{
+    logout() {
+      this.$router.push("/login");
+      //TODO call mutation with empty tokens
+      //TODO after it redirect it to auth page
+    },
+    open() {
+      console.log("open");
+      this.$refs.userForm.open();
+      // call mutation with empty tokens
+      // after it redirect it to auth page
+    }
     },
   }
 </script>
@@ -106,3 +165,5 @@
     color: #f12626;
   }
 </style>
+
+
