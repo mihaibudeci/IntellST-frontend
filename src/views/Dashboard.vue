@@ -12,7 +12,7 @@
       <v-list dense
         class="tile"
       >
-        <v-list-item link to="/home">
+        <v-list-item link to="/">
           <v-list-item-action>
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
@@ -49,7 +49,7 @@
 
     <v-app-bar
       app
-      color="grey darken-3"
+      color="grey darken-4"
       clipped-left
     >
       <img :src="require('@/assets/logo.svg')" class="mt-2 mr-1" height="100"/>
@@ -103,6 +103,6 @@
     border-radius: 4px;
   }
   .tile:hover {
-    color: red;
+    color: #f12626;
   }
 </style>

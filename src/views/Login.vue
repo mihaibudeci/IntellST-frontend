@@ -48,7 +48,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="red">Login</v-btn>
+                <v-btn color="red" to="/">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>

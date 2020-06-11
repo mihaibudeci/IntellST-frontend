@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-//import store from './store/store'
+import NotFound from '@/views/NotFound';
 
 Vue.use(Router);
 
@@ -21,7 +21,7 @@ const router = new Router({
           },
           children: [
             {
-              path: '/home',
+              path: '/',
               name: 'Home',
               component: () => import('../views/HomePage.vue'),
             },
@@ -48,6 +48,11 @@ const router = new Router({
       path: '/login',
       name: 'Login',
       component: () => import('../views/Login.vue'),
+    },
+    {
+      path: '*',
+      name: 'notfound',
+      component: NotFound,
     },
   ],
 });
