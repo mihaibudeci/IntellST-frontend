@@ -4,6 +4,7 @@
           max-width="444"
           outlined
   >
+    <v-form>
     <v-list-item two-line>
       <v-list-item-content>
         <div class="row" style="height: 70px;">
@@ -13,14 +14,12 @@
             <v-col cols="3">
               <v-text-field
                       type="number"
-                      min="35"
-                      max="38"
-                      v-validate="{ required: true }"
+                      v-model="temperature"
+                      name="temperature"
+                      :rules="[rules.required,rules.number,rules.boundaries]"
                       step=".1"
-                      size="2"
                       label=""
                       suffix="°"
-                      value="35.0"
                       outlined
                       dense
               ></v-text-field>
@@ -46,9 +45,25 @@
 
     <v-card-actions>
       <v-col class="text-center">
-          <v-btn color="red">Save</v-btn>
+          <v-btn type="submit" color="red">Save</v-btn>
       </v-col>
     </v-card-actions>
+    </v-form>
   </v-card>
 </template>
 
+<script>
+  // import { ValidationProvider, ValidationObserver } from 'vee-validate';
+
+  export default {
+    data () {
+      return {
+        temperature: null,
+        rules: {
+          required: value => !!value || 'Invalid data.',
+          boundaries: value => Number(value) <= 35 && Number(value) >= 38 || 'the value must be between 35 and 38',
+        },
+      }
+    },
+  }
+</script>
