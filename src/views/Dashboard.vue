@@ -47,15 +47,22 @@
       </v-list>
     </v-navigation-drawer>
 
+
     <v-app-bar
       app
       color="grey darken-4"
       clipped-left
     >
+
       <img :src="require('@/assets/logo.svg')" class="mt-2 mr-1" height="100"/>
       <v-spacer></v-spacer>
       <v-btn icon>
+        <v-badge
+                color="red"
+                dot
+        >
         <v-icon>mdi-bell</v-icon>
+        </v-badge>
       </v-btn>
       <v-btn icon>
         <v-icon>mdi-account</v-icon>

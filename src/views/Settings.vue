@@ -1,4 +1,5 @@
 <template>
+  <ValidationObserver ref="observer" class="mx-auto">
   <v-card
           class="mx-auto"
           max-width="444"
@@ -12,17 +13,17 @@
             <v-list-item-subtitle class="mt-3">Set maximum allowed temperature C°</v-list-item-subtitle>
           </div>
             <v-col cols="3">
+              <ValidationProvider rules="required|between:35,38" name="Temperature" v-slot="{ errors }">
               <v-text-field
-                      type="number"
                       v-model="temperature"
-                      name="temperature"
-                      :rules="[rules.required,rules.number,rules.boundaries]"
+                      required
+                      :error-messages="errors"
                       step=".1"
                       label=""
-                      suffix="°"
                       outlined
                       dense
               ></v-text-field>
+              </ValidationProvider>
             </v-col>
           </div>
         <div class="row" style="height: 80px;">
@@ -30,14 +31,16 @@
             <v-list-item-subtitle class="mt-3">Set restriction period (days)</v-list-item-subtitle>
           </div>
           <v-col cols="3">
+            <ValidationProvider rules="required|max:2" name="Days" v-slot="{ errors }">
             <v-text-field
-                    type="number"
+                    v-model="days"
                     required
-                    size="2"
+                    :error-messages="errors"
                     label=""
                     outlined
                     dense
             ></v-text-field>
+            </ValidationProvider>
           </v-col>
         </div>
       </v-list-item-content>
@@ -45,25 +48,47 @@
 
     <v-card-actions>
       <v-col class="text-center">
-          <v-btn type="submit" color="red">Save</v-btn>
+          <v-btn @click="submit" color="red">Save</v-btn>
       </v-col>
     </v-card-actions>
     </v-form>
   </v-card>
+  </ValidationObserver>
 </template>
 
 <script>
-  // import { ValidationProvider, ValidationObserver } from 'vee-validate';
+  import { required, between, max } from 'vee-validate/dist/rules'
+  import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
+  setInteractionMode('eager')
+
+  extend('required', {
+    ...required,
+    message: 'Empty field',
+  })
+
+  extend('max', {
+    ...max,
+    message: 'Invalid data',
+  })
+
+  extend('between', {
+    ...between,
+    message: 'Invalid data',
+  })
 
   export default {
-    data () {
-      return {
-        temperature: null,
-        rules: {
-          required: value => !!value || 'Invalid data.',
-          boundaries: value => Number(value) <= 35 && Number(value) >= 38 || 'the value must be between 35 and 38',
-        },
-      }
+    components: {
+      ValidationProvider,
+      ValidationObserver,
     },
+    data: () => ({
+      days: '',
+      temperature: '',
+    }),
+    methods: {
+      submit () {
+        this.$refs.observer.validate()
+      }
+    }
   }
 </script>
